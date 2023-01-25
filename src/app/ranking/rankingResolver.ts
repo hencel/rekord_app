@@ -6,6 +6,7 @@ import { ConfigService } from '../service/service';
 
 @Injectable({ providedIn: 'root' })
 export class RankingResolver implements Resolve<Data> {
+    
   constructor(private service: ConfigService) {}
 
   resolve(
