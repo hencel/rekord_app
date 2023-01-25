@@ -1,9 +1,43 @@
-<p class="mt-5">ranking works!</p>
-
-<section>
-  <ul *ngFor="let element of apiData.data.standings">
-    <li>
-      {{ element.team.name }}
-    </li>
-  </ul>
+<section class="ranking">
+  <h2 class="mt-5">{{ name }}</h2>
+  <h4>{{ season }}</h4>
+  <div class="table-responsive mb-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Miejsce w rankingu</th>
+          <th>Logo</th>
+          <th>Punkty</th>
+          <th>Skrót</th>
+          <th>Nazwa klubu</th>
+          <th>Wygrane mecze</th>
+          <th>Zremisowane mecze</th>
+          <th>Przegrane mecze</th>
+          <th>Bramki strzelone</th>
+          <th>Bramki stracone</th>
+          <th>Różnica bramek strzelonych i straconych</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let element of apiData.data.standings">
+          <td *ngIf="element.note; else elseBlock">
+            {{ element.note.rank }}
+          </td>
+          <ng-template #elseBlock><td>X</td></ng-template>
+          <td>
+            <img src="{{ element.team.logos[0].href }}" class="ranking--logo" />
+          </td>
+          <td>{{ element.stats[2].value }}</td>
+          <td>{{ element.team.shortDisplayName }}</td>
+          <td>{{ element.team.name }}</td>
+          <td>{{ element.stats[6].value }}</td>
+          <td>{{ element.stats[5].value }}</td>
+          <td>{{ element.stats[1].value }}</td>
+          <td>{{ element.stats[4].value }}</td>
+          <td>{{ element.stats[3].value }}</td>
+          <td>{{ element.stats[4].value - element.stats[3].value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
