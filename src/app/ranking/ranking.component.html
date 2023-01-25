@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let element of apiData.data.standings">
+        <tr *ngFor="let element of apiData">
           <td *ngIf="element.note; else elseBlock">
             {{ element.note.rank }}
           </td>

@@ -34,10 +34,11 @@ export class RankingComponent implements OnInit {
   prepareData():void {
     this.service.getData().subscribe((res) => 
       {
-        this.apiData = res;
+        this.apiData = res.data.standings;
+
         console.log(this.apiData);
-        this.name = this.apiData.data.name;
-        this.season = this.apiData.data.season;
+        this.name = res.data.name;
+        this.season = res.data.season;
       })
   }
 
