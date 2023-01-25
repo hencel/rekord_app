@@ -27,9 +27,27 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            <img
+              src="https://www.rekord.com.pl/images/layout/logo-bts.png"
+              class="ranking--logo"
+            />
+          </td>
+          <td>1000</td>
+          <td>Rekord</td>
+          <td>Rekord SI Sp. z o.o.</td>
+          <td>100</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
         <tr *ngFor="let element of apiData">
           <td *ngIf="element.note; else elseBlock">
-            {{ element.note.rank }}
+            {{ element.note.rank + 1 }}
           </td>
           <ng-template #elseBlock><td>X</td></ng-template>
           <td>
