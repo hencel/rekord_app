@@ -1,16 +1,16 @@
 export interface Data {
     status: boolean,
-    data: any
+    data: ApiData
 }
 export interface ApiData {
     abbreviation: string,
     name: string,
     season: string,
     seasonDisplay: string,
-    standings: []
+    standings: StandingsData[]
 }
 
-export interface TeamData {
+export interface StandingsData {
     abbreviation: string,
     displayName: string,
     id: string,

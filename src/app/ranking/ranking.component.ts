@@ -2,6 +2,8 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { ConfigService } from '../service/service';
+import { ApiData, Standing } from '../models/dataModel';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,10 +16,11 @@ import { ConfigService } from '../service/service';
 export class RankingComponent implements OnInit {
   private url: string = 'https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=2021&sort=asc';
   public apiData?: any;
-
+  
   public name?: string;
   public season?: string;
 
+  public filter: string = '';
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private service: ConfigService) {}
 
@@ -42,4 +45,8 @@ export class RankingComponent implements OnInit {
       })
   }
 
+  blurEvent(event: any){
+    // this.filter = event.target.value;
+    console.log(event.target.value)
+  }
 }

@@ -1,6 +1,14 @@
 <section class="ranking">
   <h2 class="mt-5">{{ name }}</h2>
   <h4>{{ season }}</h4>
+  <div class="form-group">
+    <strong>Filtruj</strong>
+    <input
+      class="form-control"
+      [(ngModel)]="filter"
+      (blur)="blurEvent($event)"
+    />
+  </div>
   <div class="table-responsive mb-5">
     <table class="table">
       <thead>

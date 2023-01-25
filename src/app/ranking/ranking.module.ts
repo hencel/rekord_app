@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { TableFilterPipe } from './filter.pipe';
+
 
 import { RankingRoutingModule } from './ranking-routing.module';
 import { RankingComponent } from './ranking.component';
@@ -7,11 +10,13 @@ import { RankingComponent } from './ranking.component';
 
 @NgModule({
   declarations: [
-    RankingComponent
+    RankingComponent,
+    TableFilterPipe
   ],
   imports: [
     CommonModule,
-    RankingRoutingModule
+    RankingRoutingModule,
+    FormsModule,
   ]
 })
 export class RankingModule { }
