@@ -1,1 +1,9 @@
-<p>ranking works!</p>
+<p class="mt-5">ranking works!</p>
+
+<section>
+  <ul *ngFor="let element of apiData.data.standings">
+    <li>
+      {{ element.team.name }}
+    </li>
+  </ul>
+</section>
